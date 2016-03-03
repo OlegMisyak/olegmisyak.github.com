@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+<script>
+
+var myReturn = showMessage('Юля', 'Привет!');
+
+var a = 5 + 2;
+
+alert(myReturn);
+
+
+function showMessage(message, person) {
+	alert (message + ', ' + person);
+	var ourMessage = "Я передал сообщение, " + message;
+	return ourMessage;	
+}
+
+function showMessage() {
+	alert (message + ', ' + person);
+	var ourMessage = "Я передал сообщение, " + message;
+	return ourMessage;	
+}
+
+
+// 1. Функция что-то делает
+hello();
+
+function hello() {
+	alert("hello")
+} // underfind
+
+function hello() {
+	alert("hello")
+	return; // underfind
+}
+
+// 2. Функция ничего не делает, но что-то возвращает
+var helloString = helloMessage(); // helloString = "Hello";
+
+function helloMessage() {
+	return "Hello";
+}
+
+// 3. Функция что-то делает и что-то возвращает
+var answer = sayHello(); // 1) alert("Hello"), 2) answer = 1
+
+function sayHello() {
+	alert("Hello!")
+	return 1;
+}
+
+// 4. Функция с параметрами
+helloToFriend("Hello", "Olga");
+var mes = "Hello";
+var myName = "Olga";
+helloToFriend(mes, myName);
+
+function helloToFriend(message, name) {
+	alert(message + ' ' + name + '!');
+}
+
+// ЛОКАЛЬНЫЕ ПЕРЕМЕННЫЕ
+function local() {
+	var localVariabl = 10;
+	alert(localVariabl);
+}
+// localVariabl - не виден
+
+var globalVariabl = "hello";
+function globalVarFunction() {
+	alert(globalVariable);
+}
+
+// 5. Присвоение переменной
+function sayHi() {
+	alert("Hi");
+	return 100;
+}
+
+var returnedValue = sayHi(); // returnedValue = 100
+
+var sayAgainHello = sayHi; sayAgainHello();
+var a = 1;
+var b = 2;
+a = b; // a = 2
+
+// 6. Функциональное выражение
+var sayHi = function() {
+	alert("Hello, friends!");
+}
+sayHi();
+
+function sayHi() {
+	alert("Hello, friends!");
+}
+sayHi();
+
+
+// 7. Анонимные финукции
+
+var abonement = false;
+
+var sayHi = (abonement === true) ?
+function() { alert('Прошу Вас!'); } :
+function() { alert('Купите абонемент'); };
+
+sayHi();
+
+var b = 10;
+var c = 20;
+
+var a = (b>c) ? b : c; // a = 20
+
+
+if ( b > c) {
+	a = b;
+} else {
+	a = c;
+}
+
+var customer = "";
+
+var customerName = customer;
+var customerName = (customer != '' && customer != null) ? customer : "Default customer";
+
+// 8. Анонимные фукнции
+
+var sum = new Function('a,b', ' c = a+b; return c; ');
+
+var result = sum(1, 2);
+alert( result ); // 3
+	
+</script>
+
+
+</body>
+</html>
